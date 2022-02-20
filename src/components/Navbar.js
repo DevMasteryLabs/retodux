@@ -2,6 +2,7 @@ import React from 'react'
 import Navbar from 'react-bootstrap/Navbar'
 import Nav from 'react-bootstrap/Nav'
 import Container from 'react-bootstrap/Container'
+import { NavLink } from 'react-router-dom'
 
 export default function AppNavbar() {
     return (
@@ -11,8 +12,8 @@ export default function AppNavbar() {
                     <img src="/img/todo-logo.png" alt="app-logo" width={40} />
                 </Navbar.Brand>
                 <Nav className="me-auto">
-                    <Nav.Link href="#home">My Todos</Nav.Link>
-                    <Nav.Link href="#features">New Todo</Nav.Link>
+                    <NavLink exact className="nav-link" to="/">My Todos</NavLink>
+                    <NavLink className="nav-link" to="/new-todo">New Todo</NavLink>
                 </Nav>
             </Container>
         </Navbar>
