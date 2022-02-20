@@ -25,7 +25,10 @@ export default function NewTodo(props) {
                 <Form.Control value={description} onChange={e => setDescription(e.target.value)} as="textarea" rows={3} />
             </Form.Group>
             <div className='d-flex justify-content-center'>
-                <Button variant='outline-primary' type='submit'>Add Todo</Button>
+                <Button variant='outline-primary' type='submit'>
+                    <i class="bi bi-plus-circle-fill"></i>
+                    <span className="ms-2">Add Todo</span>
+                </Button>
             </div>
         </Form>
     )
