@@ -10,13 +10,15 @@ function App() {
   const [todos, setTodos] = useState([
     {
       id: "1",
-      title: "Todo 1",
-      description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos officia culpa ipsum qui minima atque dolor suscipit quis cum accusamus"
+      title: "Learn Node.js",
+      description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos officia culpa ipsum qui minima atque dolor suscipit quis cum accusamus",
+      completed: false
     },
     {
       id: "2",
-      title: "Todo 2",
-      description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos officia culpa ipsum qui minima atque dolor suscipit quis cum accusamus"
+      title: "Learn MongoDB",
+      description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos officia culpa ipsum qui minima atque dolor suscipit quis cum accusamus",
+      completed: false
     },
   ])
   const handleAddTodo = todo => {
@@ -39,7 +41,7 @@ function App() {
           <Switch>
             <Route exact path='/' component={() => <Todos todos={todos} onDelete={handleDelete} />} />
             <Route path='/new-todo' component={(props) => <NewTodo {...props} onAddTodo={handleAddTodo} /> } />
-            <Route path='/todos/:id' component={TodoDetails} />
+            <Route path='/todos/:id' component={(props) => <TodoDetails {...props} todos={todos} />} />
           </Switch>
         </Container>
       </Router>
