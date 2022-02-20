@@ -8,7 +8,7 @@ export default function AppNavbar() {
         <Navbar bg="dark" variant="dark">
             <Container>
                 <Navbar.Brand>
-                    <img src="/img/todo-logo.png" alt="" width={50} />
+                    <img src="/img/todo-logo.png" alt="app-logo" width={40} />
                 </Navbar.Brand>
                 <Nav className="me-auto">
                     <Nav.Link href="#home">My Todos</Nav.Link>

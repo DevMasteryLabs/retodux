@@ -1,12 +1,20 @@
-import Button from 'react-bootstrap/Button';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import Navbar from './components/Navbar';
+import NewTodo from './pages/NewTodo';
+import TodoDetails from './pages/TodoDetails';
+import Todos from './pages/Todos';
 
 function App() {
   return (
     <>
-      <Navbar />
-      <h1>App</h1>
-      <Button variant='info'>OK</Button>
+      <Router>
+        <Navbar />
+        <Switch>
+          <Route exact path='/' component={Todos} />
+          <Route path='/new-todo' component={NewTodo} />
+          <Route path='/todos/:id' component={TodoDetails} />
+        </Switch>
+      </Router>
     </>
   );
 }
