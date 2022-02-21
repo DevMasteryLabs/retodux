@@ -11,18 +11,25 @@ export default function Todos(props) {
         <div className='mt-5'>
             <ListGroup>
                 {props.todos.map(todo => (
-                    <ListGroup.Item 
-                        variant="primary" 
-                        key={todo.id} 
+                    <ListGroup.Item
+                        variant="primary"
+                        key={todo.id}
                         className="d-flex justify-content-between align-items-center"
                     >
-                        <span>{todo.title}</span>
+                        <div>
+                            {
+                                todo.completed
+                                    ? <i class="bi bi-check-square-fill fs-3 text-secondary btn" onClick={() => props.onToggleCompleted(todo.id)}></i>
+                                    : <i class="bi bi-square fs-3 text-secondary btn" onClick={() => props.onToggleCompleted(todo.id)}></i>
+                            }
+                            <span>{todo.title}</span>
+                        </div>
                         <div>
                             <Link to={`/todos/${todo.id}`}>
-                                <i class="bi bi-eye-fill fs-3 text-primary btn"></i>                            
+                                <i class="bi bi-eye-fill fs-3 text-primary btn"></i>
                             </Link>
-                            <DeleteTodoModal todo={todo} onConfirmDelete={handleConfirmDelete} />    
-                        </div> 
+                            <DeleteTodoModal todo={todo} onConfirmDelete={handleConfirmDelete} />
+                        </div>
                     </ListGroup.Item>
                 ))}
             </ListGroup>

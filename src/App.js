@@ -33,13 +33,25 @@ function App() {
   const handleDelete = (id) => {
     setTodos(prevTodos => prevTodos.filter(todo => todo.id !== id))
   }
+  const handleToggleCompleted = (id) => {
+    setTodos(prevTodos => prevTodos.map(todo => {
+      if (todo.id === id) {
+        return {
+          ...todo,
+          completed: !todo.completed
+        }
+      } else {
+        return todo
+      }
+    }))
+  }
   return (
     <>
       <Router>
         <Navbar />
         <Container>
           <Switch>
-            <Route exact path='/' component={() => <Todos todos={todos} onDelete={handleDelete} />} />
+            <Route exact path='/' component={() => <Todos todos={todos} onDelete={handleDelete} onToggleCompleted={handleToggleCompleted} />} />
             <Route path='/new-todo' component={(props) => <NewTodo {...props} onAddTodo={handleAddTodo} /> } />
             <Route path='/todos/:id' component={(props) => <TodoDetails {...props} todos={todos} />} />
           </Switch>
