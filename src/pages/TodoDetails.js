@@ -1,8 +1,9 @@
 import React from 'react'
 import { Alert, Table } from 'react-bootstrap';
+import { useSelector } from 'react-redux';
 
 export default function TodoDetails(props) {
-  const todos = props.todos;
+  const todos = useSelector(state => state.todos)
   const id = props.match.params.id
   const todo = todos.find(t => t.id === id)
   return (

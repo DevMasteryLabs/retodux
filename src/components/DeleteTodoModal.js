@@ -1,11 +1,15 @@
 import React, { useState } from 'react'
 import { Button, Modal, Table } from 'react-bootstrap';
+import { useDispatch } from 'react-redux';
+import { removeTodo } from '../redux/actions/todosActionCreators';
 
-export default function DeleteTodoModal({todo, onConfirmDelete}) {
+export default function DeleteTodoModal({todo}) {
     const [show, setShow] = useState(false);
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+
+    const dispatch = useDispatch()
 
     return (
         <>
@@ -34,7 +38,7 @@ export default function DeleteTodoModal({todo, onConfirmDelete}) {
                     <Button variant="secondary" onClick={handleClose}>
                         Cancel
                     </Button>
-                    <Button variant="primary" onClick={() => onConfirmDelete(todo.id)}>
+                    <Button variant="primary" onClick={() => dispatch(removeTodo(todo.id))}>
                         Yes
                     </Button>
                 </Modal.Footer>
