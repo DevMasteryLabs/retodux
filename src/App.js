@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Container } from 'react-bootstrap';
+import { useSelector } from 'react-redux';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import Navbar from './components/Navbar';
 import NewTodo from './pages/NewTodo';
@@ -7,6 +8,10 @@ import TodoDetails from './pages/TodoDetails';
 import Todos from './pages/Todos';
 
 function App() {
+  const globalState = useSelector(state => state)
+  console.log('====================================');
+  console.log({globalState});
+  console.log('====================================');
   const [todos, setTodos] = useState([
     {
       id: "1",
