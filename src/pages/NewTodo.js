@@ -26,7 +26,7 @@ export default function NewTodo(props) {
             </Form.Group>
             <div className='d-flex justify-content-center'>
                 <Button variant='outline-primary' type='submit'>
-                    <i class="bi bi-plus-circle-fill"></i>
+                    <i className="bi bi-plus-circle-fill"></i>
                     <span className="ms-2">Add Todo</span>
                 </Button>
             </div>

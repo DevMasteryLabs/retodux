@@ -19,14 +19,14 @@ export default function Todos(props) {
                         <div>
                             {
                                 todo.completed
-                                    ? <i class="bi bi-check-square-fill fs-3 text-secondary btn" onClick={() => props.onToggleCompleted(todo.id)}></i>
-                                    : <i class="bi bi-square fs-3 text-secondary btn" onClick={() => props.onToggleCompleted(todo.id)}></i>
+                                    ? <i className="bi bi-check-square-fill fs-3 text-secondary btn" onClick={() => props.onToggleCompleted(todo.id)}></i>
+                                    : <i className="bi bi-square fs-3 text-secondary btn" onClick={() => props.onToggleCompleted(todo.id)}></i>
                             }
                             <span>{todo.title}</span>
                         </div>
                         <div>
                             <Link to={`/todos/${todo.id}`}>
-                                <i class="bi bi-eye-fill fs-3 text-primary btn"></i>
+                                <i className="bi bi-eye-fill fs-3 text-primary btn"></i>
                             </Link>
                             <DeleteTodoModal todo={todo} onConfirmDelete={handleConfirmDelete} />
                         </div>
