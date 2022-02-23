@@ -12,7 +12,8 @@ export default function AppNavbar() {
                     <img src="/img/todo-logo.png" alt="app-logo" width={40} />
                 </Navbar.Brand>
                 <Nav className="me-auto">
-                    <NavLink exact className="nav-link" to="/">My Todos</NavLink>
+                    <NavLink exact className="nav-link" to="/">Todos</NavLink>
+                    <NavLink className="nav-link" to="/collaborators">Collaborators</NavLink>
                     <NavLink className="nav-link" to="/new-todo">New Todo</NavLink>
                 </Nav>
             </Container>

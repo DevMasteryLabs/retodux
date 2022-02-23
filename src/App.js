@@ -3,6 +3,7 @@ import { Container } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import Navbar from './components/Navbar';
+import Collaborators from './pages/Collaborators';
 import NewTodo from './pages/NewTodo';
 import TodoDetails from './pages/TodoDetails';
 import Todos from './pages/Todos';
@@ -59,6 +60,7 @@ function App() {
             <Route exact path='/' component={() => <Todos todos={todos} onDelete={handleDelete} onToggleCompleted={handleToggleCompleted} />} />
             <Route path='/new-todo' component={(props) => <NewTodo {...props} onAddTodo={handleAddTodo} /> } />
             <Route path='/todos/:id' component={(props) => <TodoDetails {...props} todos={todos} />} />
+            <Route path='/collaborators' component={Collaborators} />
           </Switch>
         </Container>
       </Router>
