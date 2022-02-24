@@ -1,9 +1,11 @@
 import { combineReducers } from "redux";
 
 import todosReducer from "./todosReducer";
+import collaboratorsReducer from "./collaboratorsReducer";
 
 const rootReducer = combineReducers({
-    todos: todosReducer
+    todos: todosReducer,
+    collaborators: collaboratorsReducer
 })
 
 export default rootReducer;
