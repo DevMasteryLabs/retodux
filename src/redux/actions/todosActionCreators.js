@@ -19,11 +19,12 @@ export const toggleTodoCompleted = (id) => ({
     payload: id 
 })
 
-export const updateTodo = (id, {title, description}) => ({
+export const updateTodo = (id, {title, description, userId}) => ({
     type: UPDATE_TODO,
     payload: {
         id,
         title,
-        description
+        description,
+        userId
     } 
 })

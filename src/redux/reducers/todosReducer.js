@@ -49,13 +49,14 @@ const todosReducer = (state = initialState, action) => {
       });
     }
     case UPDATE_TODO: {
-      const {id, title, description} = action.payload;
+      const {id, title, description, userId} = action.payload;
       return state.map(todo => {
         if (todo.id === id) {
           return {
             ...todo,
             title,
-            description
+            description,
+            userId
           }
         } else {
           return todo

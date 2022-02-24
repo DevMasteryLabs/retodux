@@ -8,14 +8,20 @@ export default function UpdateTodo(props) {
     const params = useParams()
     const { id } = params
     const todos = useSelector(state => state.todos)
+    const collaborators = useSelector(state => state.collaborators)
+    console.log({collaborators});
     const todo = todos.find(todo => todo.id === id)
+    console.log({todo});
+    const collaborator = todo && collaborators.find(c => c.id === todo.userId)
+    console.log({collaborator});
     const dispatch = useDispatch()
     const [title, setTitle] = useState(todo ? todo.title : '')
     const [description, setDescription] = useState(todo ? todo.description : '')
+    const [userId, setUserId] = useState(todo && todo.userId)
     const handleSubmit = e => {
         e.preventDefault()
         if (title.trim()) {
-            dispatch(updateTodo(id, { title, description }))
+            dispatch(updateTodo(id, { title, description, userId }))
             props.history.push('/')
         }
     }
@@ -28,6 +34,17 @@ export default function UpdateTodo(props) {
             <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
                 <Form.Label>Todo Description</Form.Label>
                 <Form.Control value={description} onChange={e => setDescription(e.target.value)} as="textarea" rows={3} />
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
+                <Form.Label>Collaborator</Form.Label>
+                <Form.Select value={userId} onChange={event => setUserId(event.target.value)}>
+                    <option value="" ></option>
+                    {
+                        collaborators.map(collaborator => (
+                            <option key={collaborator.id} value={collaborator.id}> {collaborator.name} ({collaborator.email}) </option>
+                        ))
+                    }
+                </Form.Select>
             </Form.Group>
             <div className='d-flex justify-content-center'>
                 <Button variant='outline-primary' type='submit'>
