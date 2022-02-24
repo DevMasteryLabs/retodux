@@ -12,7 +12,7 @@ function CollaboratorCard({ collaborator }) {
                     <Card.Text className="mb-0"> {collaborator.email} </Card.Text>
                     <Card.Text className="mb-0"> {collaborator.username} </Card.Text>
                     <Card.Text> {collaborator.phone} </Card.Text>
-                    <Button variant="primary">Go somewhere</Button>
+                    {/* <Button variant="primary">Go somewhere</Button> */}
                 </Card.Body>
             </Card>
         </div>

@@ -4,14 +4,14 @@ const initialState = [
   {
     id: "1",
     name: "Leanne Graham",
-    username: "Bret",
+    username: "graham",
     email: "leanne@gmail.com",
     phone: "1-770-736-8031"
   },
   {
     id: "2",
     name: "Ervin Howell",
-    username: "Antonette",
+    username: "ervinh",
     email: "ervin@outlook.com",
     phone: "010-692-6593"
   },
