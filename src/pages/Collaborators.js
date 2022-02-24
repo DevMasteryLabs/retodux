@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Button, Form } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
@@ -6,7 +6,7 @@ import CollaboratorCard from '../components/CollaboratorCard';
 
 function Collaborators() {
   const collaborators = useSelector(state => state.collaborators)
-  console.log({ collaborators });
+  const [email, setEmail] = useState('')
   return (
     <>
       <div className='d-flex mt-5 justify-content-end'>
@@ -19,7 +19,7 @@ function Collaborators() {
       <Form>
         <div className='row mt-4'>
           <Form.Group className="mb-3" controlId="formBasicEmail">
-            <Form.Control type="email" placeholder="Enter email" />
+            <Form.Control type="email" placeholder="Enter email" value={email} onChange={e => setEmail(e.target.value)} />
             <Form.Text className="text-muted">
               Filter collaborators by email.
             </Form.Text>
@@ -28,7 +28,7 @@ function Collaborators() {
       </Form>
       <div className='row mt-5'>
         {
-          collaborators.map(collaborator => <CollaboratorCard key={collaborator.id} collaborator={collaborator} />)
+          collaborators.filter(c => email ? c.email.includes(email) : true).map(collaborator => <CollaboratorCard key={collaborator.id} collaborator={collaborator} />)
         }
       </div>
     </>

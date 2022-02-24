@@ -9,11 +9,8 @@ export default function UpdateTodo(props) {
     const { id } = params
     const todos = useSelector(state => state.todos)
     const collaborators = useSelector(state => state.collaborators)
-    console.log({collaborators});
     const todo = todos.find(todo => todo.id === id)
-    console.log({todo});
     const collaborator = todo && collaborators.find(c => c.id === todo.userId)
-    console.log({collaborator});
     const dispatch = useDispatch()
     const [title, setTitle] = useState(todo ? todo.title : '')
     const [description, setDescription] = useState(todo ? todo.description : '')
