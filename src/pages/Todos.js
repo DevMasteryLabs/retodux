@@ -8,14 +8,12 @@ import { toggleTodoCompleted } from '../redux/actions/todosActionCreators'
 export default function Todos(props) {
     const todos = useSelector(state => state.todos)
     const collaborators = useSelector(state => state.collaborators)
-    console.log({collaborators, todos});
     const dispatch = useDispatch()
     return (
         <div className='mt-5'>
             <ListGroup>
                 {todos.map(todo => {
                     let collaborator = collaborators.find(c => c.id === todo.userId)
-                    console.log({collaborator});
                     return (
                         <ListGroup.Item
                             variant="primary"

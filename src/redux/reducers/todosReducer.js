@@ -5,13 +5,15 @@ const initialState = [
     id: "1",
     title: "Learn Node.js",
     description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos officia culpa ipsum qui minima atque dolor suscipit quis cum accusamus",
-    completed: false
+    completed: false,
+    userId: "2"
   },
   {
     id: "2",
     title: "Learn MongoDB",
     description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos officia culpa ipsum qui minima atque dolor suscipit quis cum accusamus",
-    completed: false
+    completed: false,
+    userId: ""
   },
 ];
 
