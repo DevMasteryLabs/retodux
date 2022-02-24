@@ -1,16 +1,16 @@
 import React, { useState } from 'react'
 import { Button, Form } from 'react-bootstrap'
+import { useDispatch } from 'react-redux'
+import { addTodo } from '../redux/actions/todosActionCreators'
 
 export default function NewTodo(props) {
+    const dispatch = useDispatch()
     const [title, setTitle] = useState('')
     const [description, setDescription] = useState('')
     const handleSubmit = e => {
         e.preventDefault()
         if (title.trim()) {
-            props.onAddTodo({
-                title,
-                description
-            })
+            dispatch(addTodo(title, description))
             props.history.push('/')
         }
     }
