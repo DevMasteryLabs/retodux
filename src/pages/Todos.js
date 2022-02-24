@@ -29,6 +29,9 @@ export default function Todos(props) {
                             <Link to={`/todos/${todo.id}`}>
                                 <i className="bi bi-eye-fill fs-3 text-primary btn"></i>
                             </Link>
+                            <Link to={`/update-todo/${todo.id}`}>
+                                <i className="bi bi-pencil-square fs-3 text-info btn"></i>
+                            </Link>
                             <DeleteTodoModal todo={todo} />
                         </div>
                     </ListGroup.Item>

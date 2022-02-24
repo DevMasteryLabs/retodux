@@ -1,4 +1,4 @@
-import { ADD_TODO, REMOVE_TODO, TOGGLE_TODO_COMPLETED } from "../types/todosTypes";
+import { ADD_TODO, REMOVE_TODO, TOGGLE_TODO_COMPLETED, UPDATE_TODO } from "../types/todosTypes";
 
 const initialState = [
   {
@@ -39,6 +39,20 @@ const todosReducer = (state = initialState, action) => {
           return {
             ...todo,
             completed: !todo.completed
+          }
+        } else {
+          return todo
+        }
+      });
+    }
+    case UPDATE_TODO: {
+      const {id, title, description} = action.payload;
+      return state.map(todo => {
+        if (todo.id === id) {
+          return {
+            ...todo,
+            title,
+            description
           }
         } else {
           return todo
