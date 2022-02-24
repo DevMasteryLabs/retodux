@@ -1,16 +1,18 @@
 import React, { useState } from 'react'
 import { Button, Form } from 'react-bootstrap'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { addTodo } from '../redux/actions/todosActionCreators'
 
 export default function NewTodo(props) {
     const dispatch = useDispatch()
+    const collaborators = useSelector(state => state.collaborators)
     const [title, setTitle] = useState('')
     const [description, setDescription] = useState('')
+    const [collaboratorId, setCollaboratorId] = useState('')
     const handleSubmit = e => {
         e.preventDefault()
         if (title.trim()) {
-            dispatch(addTodo(title, description))
+            dispatch(addTodo(title, description, collaboratorId))
             props.history.push('/')
         }
     }
@@ -23,6 +25,17 @@ export default function NewTodo(props) {
             <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
                 <Form.Label>Todo Description</Form.Label>
                 <Form.Control value={description} onChange={e => setDescription(e.target.value)} as="textarea" rows={3} />
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
+                <Form.Label>Collaborator</Form.Label>
+                <Form.Select value={collaboratorId} onChange={event => setCollaboratorId(event.target.value)}>
+                    <option value="" ></option>
+                    {
+                        collaborators.map(collaborator => (
+                            <option key={collaborator.id} value={collaborator.id}> {collaborator.name} ({collaborator.email}) </option>
+                        ))
+                    }
+                </Form.Select>
             </Form.Group>
             <div className='d-flex justify-content-center'>
                 <Button variant='outline-primary' type='submit'>

@@ -1,10 +1,11 @@
 import { ADD_TODO, REMOVE_TODO, TOGGLE_TODO_COMPLETED, UPDATE_TODO } from "../types/todosTypes";
 
-export const addTodo = (title, description) => ({
+export const addTodo = (title, description, collaboratorId) => ({
     type: ADD_TODO,
     payload: {
         title,
-        description
+        description,
+        userId: collaboratorId
     } 
 })
 

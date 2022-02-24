@@ -18,13 +18,14 @@ const initialState = [
 const todosReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_TODO: {
-      const { title, description } = action.payload;
+      const { title, description, userId } = action.payload;
       const id = Math.floor(Math.random() * 10000).toString()
       const newTodo = {
         id,
         title,
         description,
-        completed: false
+        completed: false,
+        userId
       }
       return [...state, newTodo];
     }
