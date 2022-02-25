@@ -16,7 +16,7 @@ export default function Todos(props) {
                     let collaborator = collaborators.find(c => c.id === todo.userId)
                     return (
                         <ListGroup.Item
-                            variant="primary"
+                            variant={todo.completed ? "secondary" : "primary"}
                             key={todo.id}
                         >
                             <div className="d-flex justify-content-between align-items-center">
@@ -26,7 +26,7 @@ export default function Todos(props) {
                                             ? <i className="bi bi-check-square-fill fs-3 text-secondary btn" onClick={() => dispatch(toggleTodoCompleted(todo.id))}></i>
                                             : <i className="bi bi-square fs-3 text-secondary btn" onClick={() => dispatch(toggleTodoCompleted(todo.id))}></i>
                                     }
-                                    <span>{todo.title}</span>
+                                    <span className={`${todo.completed ? "text-decoration-line-through" : ""}`}>{todo.title}</span>
                                 </div>
                                 <div>
                                     <Link to={`/todos/${todo.id}`}>
