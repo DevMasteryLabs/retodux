@@ -3,7 +3,7 @@ import Card from 'react-bootstrap/Card'
 
 function CollaboratorCard({ collaborator }) {
     return (
-        <div className='col-sm-6 col-md-4 col-sm-3'>
+        <div className='col-sm-6 col-md-4 col-sm-3 mb-4'>
             <Card>
                 <Card.Img variant="top" src={`https://robohash.org/${collaborator.username}`} />
                 <Card.Body>

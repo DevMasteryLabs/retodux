@@ -26,7 +26,7 @@ function Collaborators() {
           </Form.Group>
         </div>
       </Form>
-      <div className='row mt-5'>
+      <div className='row mt-5 pb-5'>
         {
           collaborators.filter(c => email ? c.email.includes(email) : true).map(collaborator => <CollaboratorCard key={collaborator.id} collaborator={collaborator} />)
         }
